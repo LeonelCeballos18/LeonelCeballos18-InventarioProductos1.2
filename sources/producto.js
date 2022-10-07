@@ -21,4 +21,11 @@ class Producto{
     getPrecio(){
         return this.precio;
     }
+
+    info() {
+		return `
+			<p>
+				${this.codigo}-. Producto: ${this.nombre}, Cantidad: ${this.cantidad}, Precio: ${this.precio}
+			</p>`
+	}
 }

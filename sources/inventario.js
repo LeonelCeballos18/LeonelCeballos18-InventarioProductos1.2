@@ -17,7 +17,7 @@ class Inventario{
                     }
                     break;
                 }else if(code > this.inventario[i].getCodigo() && i+1==this.inventario.length){
-                    this.inventario.push(producto); //funciona correctamente
+                    this.inventario.push(producto);
                 }else if(code < this.inventario[i].getCodigo() && i+1==this.inventario.length){
                     this.inventario.push(producto);
                     this.posicionar(i);
@@ -51,13 +51,12 @@ class Inventario{
     }
 
     buscar(codigo){
-        for(let i=0; i<this.inventario.length-1; i++){
-            if(codigo == this.inventario[i].getCodigo()){
-                //Regresar objeto
-                return `Producto: ${this.inventario[i].getNombre()}, Cantidad: ${this.inventario[i].getCantidad()}, Precio: ${this.inventario[i].getPrecio()}$`;
+        for(let i=0; i<this.inventario.length; i++){
+            if(codigo === this.inventario[i].getCodigo()){
+                return this.inventario[i];
             }
         }
-        return "Producto no encontrado..";
+        return null;
     }
 
     listar(){
