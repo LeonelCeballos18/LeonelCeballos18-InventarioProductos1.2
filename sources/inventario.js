@@ -36,12 +36,12 @@ class Inventario{
     }
 
     eliminar(codigo){
-        let mid = Math.floor(this.inventario.length/2);
-        let aux = 0;
-        if(codigo>mid){
-
-        }else{
-
+        let index = this.busquedaBinaria(codigo);
+        if(index != -1){
+            for(let x=index; x<this.inventario.length-1; x++){
+                this.inventario[index] = this.inventario[index+1];
+            }
+            this.inventario.pop();
         }
     }
 
