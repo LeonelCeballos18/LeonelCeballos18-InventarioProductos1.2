@@ -36,27 +36,39 @@ class Inventario{
     }
 
     eliminar(codigo){
-        if(this.inventario.length>0){
-            for(let i=0; i<this.inventario.length; i++){
-                if(codigo == this.inventario[i].getCodigo()){
-                    for(let x=i; x<this.inventario.length-1; x++){
-                        this.inventario[i] = this.inventario[i+1];
-                    }
-                    this.inventario.pop();
-                }
-            }
+        let mid = Math.floor(this.inventario.length/2);
+        let aux = 0;
+        if(codigo>mid){
+
         }else{
-            this.inventario.pop();
+
         }
     }
 
     buscar(codigo){
-        for(let i=0; i<this.inventario.length; i++){
-            if(codigo === this.inventario[i].getCodigo()){
-                return this.inventario[i];
-            }
+        if(this.busquedaBinaria(codigo) !== -1){
+            return this.inventario[this.busquedaBinaria(codigo)];
         }
-        return null;
+    }
+
+    busquedaBinaria(codigo){
+        let aux  = 0; 
+        let aux2 = this.inventario.length - 1; 
+        
+        while(aux <= aux2){
+            let mid = Math.floor((aux+aux2)/2);
+            if(this.inventario[mid].getCodigo() === codigo)
+                return mid;
+
+            else if(this.inventario[mid].getCodigo() > codigo)
+                aux2 = mid -1; 
+
+            else
+                aux = mid +1;
+
+        }
+
+        return -1; 
     }
 
     listar(){
