@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="sources/producto.js"></script>
+    <script src="sources/inventario.js"></script>
+    <title>Estructura de datos</title>
+</head>
+<body>
+    <h2>Agregar producto</h2>
+    <fieldset>
+        <br>
+        <label for="codigo">Código: </label>
+        <input type="text" name="" id="codigo" placeholder="example: 454">
+        <br>
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="" id="nombre" placeholder="example: Reloj">
+        <br>
+        <label for="cantidad">Cantidad: </label>
+        <input type="text" name="" id="cantidad" placeholder="example: 13">
+        <br>
+        <label for="costo">Costo: </label>
+        <input type="text" name="" id="costo" placeholder="example: 43">
+        <button type="button" id="add">Agregar</button>
+    </fieldset>
+    <h2>Busqueda de producto</h2>
+    <fieldset>
+        <p>Búsqueda por código</p>
+        <label for="busqueda">Ingresa el código: </label>
+        <input type="text" name="" id="busqueda" placeholder="1124">
+        <button type="button" id="search">Buscar</button>
+        <p id="resB">Resultado: </p>
+    </fieldset>
+    <h2>Eliminar producto</h2>
+    <fieldset>
+        <p>Eliminación por código</p>
+        <label for="eliminacion">Ingresa el código: </label>
+        <input type="text" name="" id="eliminacion" placeholder="1124">
+        <button type="button" id="delete">Eliminar</button>
+    </fieldset>
+    <h2>Recuperación de listado</h2>
+    <label for="listar">Listar</label>
+    <p id="resLis"></p>
+    <button type="button" id="listar">Listar</button>
+    <h2>Recuperación de listado invertido</h2>
+    <label for="listarIn">Listar invertido</label>
+    <p id="resLisIn"></p>
+    <button type="button" id="listarIn">Listar</button>
+    <script src="sources/app.js"></script>
+</body>
+</html>
