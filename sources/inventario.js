@@ -4,27 +4,23 @@ class Inventario{
     }
 
     agregar(producto, code){
-        let index = 0;
+        let index = this.inventario.length-1;
         if(this.inventario.length < 1){
             this.inventario.push(producto);
-            console.log(code);
         }else{
-            for(let i = 0; i<this.inventario.length; i++){
-                if(code > this.inventario[i].getCodigo()){
-                    if(i < this.inventario.length-1){
-                        if(code < this.inventario[i+1].getCodigo()){ // recorrer
-                            this.inventario.push(producto);
-                            this.posicionar(i);
-                            break;
-                        }
-                    }else{
-                        this.inventario.push(producto); //funciona bien
+            for(let i=0; i<this.inventario.length; i++){
+                if(code < this.inventario[i].getCodigo() && i+1<this.inventario.length){
+                    if(code > this.inventario[i-1].getCodigo()){
+                        this.inventario.push(producto);
+                        this.posicionar(i);
                         break;
                     }
-                }else{
-                    index = i;
-                    this.inventario.push(producto); //recorrer
-                    this.posicionar(index);
+                    break;
+                }else if(code > this.inventario[i].getCodigo() && i+1==this.inventario.length){
+                    this.inventario.push(producto); //funciona correctamente
+                }else if(code < this.inventario[i].getCodigo() && i+1==this.inventario.length){
+                    this.inventario.push(producto);
+                    this.posicionar(i);
                     break;
                 }
             }
@@ -33,10 +29,10 @@ class Inventario{
 
     posicionar(index){
         let aux = this.inventario[this.inventario.length-1];
-        for(let i=this.inventario.length-1; i>=index+1; i--){
+        for(let i=this.inventario.length-1; i>index; i--){
             this.inventario[i] = this.inventario[i-1];
         }
-        this.inventario[index+1] = aux;
+        this.inventario[index] = aux;
     }
 
     eliminar(codigo){
